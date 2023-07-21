@@ -7,25 +7,25 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <head>
+        <header>
             <h1>Task Management</h1>
             <h3>PentaStagiu #1</h3>
-            <button id="OpenDialogBtn">Add Task</button>
-        </head>
+            <button id="openDialogBtn">Add Task</button>
+        </header>
 
         <main>
             <div class="task-section">
                 <h2>Uncompleted tasks</h2>
-                <ul id="UncompletedTaskList"></ul>
+                <ul id="uncompletedTaskList"></ul>
             </div>
 
             <div class="task-section">
                 <h2>Completed tasks</h2>
-                <ul id="CompletedTaskList"></ul>
+                <ul id="completedTaskList"></ul>
             </div>
 
-            <dialog id="TaskDialog">
-                <form id="TaskForm">
+            <dialog id="taskDialog">
+                <form id="taskForm">
                     <label for="name">Task Name:</label>
                     <input type="text" id="title" name="title" maxlength="50" required>
 
@@ -36,7 +36,7 @@
                     <input type="text" id="asignee" name="asignee" required>
 
                     <button type="submit">Add Task</button>
-                    <button id="CancelDialogBtn">Cancel</button>
+                    <button id="cancelDialogBtn">Cancel</button>
                 </form>
             </dialog>
 
