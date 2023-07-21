@@ -47,39 +47,48 @@ function addTask(title, description, assignee) {
     completedTaskList.innerHTML = '';
   
     tasks.forEach((task, index) => {
-      const taskItem = document.createElement("li");
-      taskItem.className = "task";
-      taskItem.innerHTML = `
-        <h3>${task.title}</h3>
-        <p>${task.description}</p>
-        <p>Assignee: ${task.assignee}</p>
-        <button class="completeBtn" data-taskid="${index}">Mark Completed</button>
-        <button class="deleteBtn" data-taskid="${index}">Delete</button>
-      `;
-  
+        const taskItem = document.createElement("li");
+        taskItem.className = "task";
+        taskItem.innerHTML = `
+          <h3>${task.title}</h3>
+          <p>${task.description}</p>
+          <p>Assignee: ${task.assignee}</p>
+          <button class="deleteBtn" data-taskid="${index}">Delete</button>
+        `;
+      
+        if (task.completed) {
+          taskItem.classList.add("completed");
+        } else {
 
-      const completeBtn = taskItem.querySelector(".completeBtn");
-      completeBtn.addEventListener("click", () => {
-        const taskId = parseInt(completeBtn.getAttribute("data-taskid"));
-        markTaskCompleted(taskId);
-        displayTasks();
+          taskItem.innerHTML += `
+            <button class="completeBtn" data-taskid="${index}">Mark Completed</button>
+
+          `;
+      
+          const completeBtn = taskItem.querySelector(".completeBtn");
+          completeBtn.addEventListener("click", () => {
+            const taskId = parseInt(completeBtn.getAttribute("data-taskid"));
+            markTaskCompleted(taskId);
+            displayTasks();
+          });
+      
+
+        }
+        const deleteBtn = taskItem.querySelector(".deleteBtn");
+        deleteBtn.addEventListener("click", () => {
+          const taskId = parseInt(deleteBtn.getAttribute("data-taskid"));
+          tasks.splice(taskId, 1);
+          saveTasks(tasks);
+          displayTasks();
+        });
+      
+        if (task.completed) {
+          completedTaskList.appendChild(taskItem);
+        } else {
+          uncompletedTaskList.appendChild(taskItem);
+        }
       });
-  
-      const deleteBtn = taskItem.querySelector(".deleteBtn");
-      deleteBtn.addEventListener("click", () => {
-        const taskId = parseInt(deleteBtn.getAttribute("data-taskid"));
-        tasks.splice(taskId, 1); 
-        saveTasks(tasks); 
-        displayTasks(); 
-      });
-  
-      if (task.completed) {
-        taskItem.classList.add("completed");
-        completedTaskList.appendChild(taskItem);
-      } else {
-        uncompletedTaskList.appendChild(taskItem);
-      }
-    });
+      
   }
 
   function handleFormSubmit(event) {
