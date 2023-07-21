@@ -14,42 +14,89 @@ cancelDialogBtn.addEventListener("click", () => {
     taskDialog.close();
 });
 
-function addTask(title, description, assignee) {
-    const taskItem = document.createElement("li");
-    taskItem.innerHTML = `
-        <h3>${title}</h3>
-        <p>${description}</p>
-        <p>Assignee: ${assignee}</p>
-        <button id="completeBtn">Mark as Completed</button>
-        <button id="deleteBtn">Remove</button>
-    `;
-
-    const completeBtn = taskItem.querySelector("#completeBtn");
-    completeBtn.addEventListener("click", () => {
-        taskItem.classList.toggle("completed");
-        completedTaskList.appendChild(taskItem);
-    });
-
-    const deleteBtn = taskItem.querySelector("#deleteBtn");
-    deleteBtn.addEventListener("click", () => {
-        taskItem.remove();
-    });
-
-    uncompletedTaskList.appendChild(taskItem);
+function saveTasks(tasks){
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+function getTasks(){
+    return JSON.parse(localStorage.getItem("tasks")) || [];
+}
+function addTask(title, description, assignee) {
+    const task = {
+      title: title,
+      description: description,
+      assignee: assignee,
+      completed: false,
+    };
+  
+    const tasks = getTasks();
+    tasks.push(task);
+  
+    saveTasks(tasks);
+  }
+  function markTaskCompleted(taskId) {
+    const tasks = getTasks();
+    tasks[taskId].completed = true;
+  
+    saveTasks(tasks);
+  }
 
-function handleFormSubmit(event) {
+  function displayTasks() {
+    const tasks = getTasks();
+  
+    uncompletedTaskList.innerHTML = '';
+    completedTaskList.innerHTML = '';
+  
+    tasks.forEach((task, index) => {
+      const taskItem = document.createElement("li");
+      taskItem.className = "task";
+      taskItem.innerHTML = `
+        <h3>${task.title}</h3>
+        <p>${task.description}</p>
+        <p>Assignee: ${task.assignee}</p>
+        <button class="completeBtn" data-taskid="${index}">Mark Completed</button>
+        <button class="deleteBtn" data-taskid="${index}">Delete</button>
+      `;
+  
+
+      const completeBtn = taskItem.querySelector(".completeBtn");
+      completeBtn.addEventListener("click", () => {
+        const taskId = parseInt(completeBtn.getAttribute("data-taskid"));
+        markTaskCompleted(taskId);
+        displayTasks();
+      });
+  
+      const deleteBtn = taskItem.querySelector(".deleteBtn");
+      deleteBtn.addEventListener("click", () => {
+        const taskId = parseInt(deleteBtn.getAttribute("data-taskid"));
+        tasks.splice(taskId, 1); 
+        saveTasks(tasks); 
+        displayTasks(); 
+      });
+  
+      if (task.completed) {
+        taskItem.classList.add("completed");
+        completedTaskList.appendChild(taskItem);
+      } else {
+        uncompletedTaskList.appendChild(taskItem);
+      }
+    });
+  }
+
+  function handleFormSubmit(event) {
     event.preventDefault();
-
+  
     const title = taskForm.title.value.trim();
     const description = taskForm.description.value.trim();
-    const assignee = taskForm.asignee.value.trim();
-
+    const assignee = taskForm.assignee.value.trim();
+  
     addTask(title, description, assignee);
     taskForm.reset();
-
+  
     taskDialog.close();
-
-}
-
-taskForm.addEventListener("submit", handleFormSubmit);
+  
+    displayTasks();
+  }
+  
+  taskForm.addEventListener("submit", handleFormSubmit);
+  
+  displayTasks();
