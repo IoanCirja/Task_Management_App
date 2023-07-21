@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Task Management</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <head>
+            <h1>Task Management</h1>
+            <h3>PentaStagiu #1</h3>
+            <button id="OpenDialogBtn">Add Task</button>
+        </head>
+
+        <main>
+            <div class="task-section">
+                <h2>Uncompleted tasks</h2>
+                <ul id="UncompletedTaskList"></ul>
+            </div>
+
+            <div class="task-section">
+                <h2>Completed tasks</h2>
+                <ul id="CompletedTaskList"></ul>
+            </div>
+
+            <dialog id="TaskDialog">
+                <form id="TaskForm">
+                    <label for="name">Task Name:</label>
+                    <input type="text" id="title" name="title" maxlength="50" required>
+
+                    <label for="description">Description:</label>
+                    <textarea name="description" id="description" maxlength="250" required></textarea>
+
+                    <label for="asignee">Asignee:</label>
+                    <input type="text" id="asignee" name="asignee" required>
+
+                    <button type="submit">Add Task</button>
+                    <button id="CancelDialogBtn">Cancel</button>
+                </form>
+            </dialog>
+
+        </main>
+
+        <footer>
+
+        </footer>
+
+
+        <script src="script.js"></script>
+    </body>
+</html>
