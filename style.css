@@ -30,13 +30,13 @@
   }
 
   
-#openDialogBtn, #taskDialog button, #help, .completeBtn, .deleteBtn{
+#openDialogBtn, #taskDialog button, #help, .completeBtn, .deleteBtn, #cancelHelp, #mailme{
     font-size: 15px; 
     padding: 10px 15px; 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-#openDialogBtn:hover,#taskDialog button[type="submit"]:hover, #help:hover, .completeBtn:hover
+#openDialogBtn:hover,#taskDialog button[type="submit"]:hover, #help:hover, .completeBtn:hover, #cancelHelp:hover, #mailme:hover
 {
     background-color: #005945;
     color: #f0f0f0;
@@ -92,6 +92,34 @@
     min-height:calc(100vh - 200px); 
   }
   
+#helpDialog, #taskDialog {
+
+  width: 500px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+
+}
+#helpDialog p {
+  text-align: justify;
+}
+
+#helpDialog div {
+  margin-bottom: 20px;
+
+}
+
+#helpDialog a {
+  text-decoration: none;
+}
+#helpDialog a:hover{
+  color:black;
+}
+
+
+
 
 
 
