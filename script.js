@@ -69,8 +69,8 @@ function addTask(title, description, assignee) {
         taskItem.className = "task";
         taskItem.innerHTML = `
           <h3>${task.title}</h3>
-          <p>${task.description}</p>
-          <p>Assignee: ${task.assignee}</p>
+          <p class="description">${task.description}</p>
+          <p><b>Assignee:</b> ${task.assignee}</p>
           <button class="deleteBtn" data-taskid="${index}">Delete</button>
         `;
       

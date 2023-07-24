@@ -1,6 +1,8 @@
 *{
     text-align: center;
+   
     padding: 0px;
+    font-family: 'Roboto', sans-serif;
 
 }
 .task-section-container {
@@ -9,41 +11,91 @@
   } 
   
   .task-section {
-    width: 45%;
-    background-color: #f0f0f0; 
-    border-radius: 5px; 
-    padding: 10px; 
+    width: 48%;
+  }
 
+  .task-section li{
+    background-color: #f0f0f0; 
+    border-radius: 10px; 
+    padding: 10px;
+    margin-bottom: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  header h1 {
+  header h1, h2 {
     background-color: #f0f0f0; 
     border-radius: 10px; 
     padding: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+
   
-#openDialogBtn, #taskDialog button, #help{
+#openDialogBtn, #taskDialog button, #help, .completeBtn, .deleteBtn{
     font-size: 15px; 
     padding: 10px 15px; 
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-#openDialogBtn:hover,#taskDialog button[type="submit"]:hover, #cancelDialogBtn:hover
+#openDialogBtn:hover,#taskDialog button[type="submit"]:hover, #help:hover, .completeBtn:hover
 {
     background-color: #005945;
     color: #f0f0f0;
     transition: background-color 0.5s ease;
 }
-
+#cancelDialogBtn:hover, .deleteBtn:hover
+{
+    background-color: #e04141;
+    color: #f0f0f0;
+    transition: background-color 0.5s ease;
+}
 #taskDialog form {
     background-color: #f0f0f0; 
-    padding: 20px; 
-    border-radius: 5px; 
+    padding: 50px; 
+    border-radius: 10px;
   }
+  
+
   
   #taskDialog label {
     display: block; 
     margin-bottom: 5px; 
+    border-radius: 10px;
+
   }
+
+
+  #taskDialog input[type="text"],
+  #taskDialog textarea {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 30px; 
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  ul{
+    list-style: none;
+  }
+
+
+  .description{
+    text-align: justify;
+  }
+
+  textarea{
+    resize: none;
+    height: 150px;
+  }
+
+  main {
+    min-height:calc(100vh - 200px); 
+  }
+  
+
+
+
+
 
 
   
