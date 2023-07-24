@@ -6,13 +6,12 @@
 .task-section-container {
     display: flex;
     justify-content: space-between;
-  }
-  
+  } 
   
   .task-section {
     width: 45%;
     background-color: #f0f0f0; 
-    border-radius: 10px; 
+    border-radius: 5px; 
     padding: 10px; 
 
   }
@@ -22,5 +21,36 @@
     border-radius: 10px; 
     padding: 10px; 
   }
+  
+#openDialogBtn, #taskDialog button, #help{
+    font-size: 15px; 
+    padding: 10px 15px; 
+    border-radius: 5px;
+  }
+#openDialogBtn:hover,#taskDialog button[type="submit"]:hover, #cancelDialogBtn:hover
+{
+    background-color: #005945;
+    color: #f0f0f0;
+    transition: background-color 0.5s ease;
+}
+
+#taskDialog form {
+    background-color: #f0f0f0; 
+    padding: 20px; 
+    border-radius: 5px; 
+  }
+  
+  #taskDialog label {
+    display: block; 
+    margin-bottom: 5px; 
+  }
+
+
+  
+
+
+  
+
+  
   
   
