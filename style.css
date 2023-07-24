@@ -1,0 +1,26 @@
+*{
+    text-align: center;
+    padding: 0px;
+
+}
+.task-section-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  
+  .task-section {
+    width: 45%;
+    background-color: #f0f0f0; 
+    border-radius: 10px; 
+    padding: 10px; 
+
+  }
+  
+  header h1 {
+    background-color: #f0f0f0; 
+    border-radius: 10px; 
+    padding: 10px; 
+  }
+  
+  

@@ -6,6 +6,24 @@ const taskForm = document.getElementById("taskForm");
 const completedTaskList = document.getElementById("completedTaskList");
 const uncompletedTaskList = document.getElementById("uncompletedTaskList");
 
+const helpBtn = document.getElementById("help");
+const cancelHelpBtn = document.getElementById("cancelHelp");
+helpDialog = document.getElementById("helpDialog");
+
+helpBtn.addEventListener("click", () =>
+{
+    helpDialog.showModal();
+});
+helpDialog.addEventListener("submit", () =>
+{
+    helpDialog.close();
+});
+cancelHelpBtn.addEventListener("click", () =>
+{
+    helpDialog.close();
+});
+
+
 openDialogBtn.addEventListener("click", () => {
     taskDialog.showModal();
 });
