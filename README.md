@@ -1,2 +1,3 @@
 # Task_Management_App
-PentaStagiu #1
+PentaStagiu Homework #1
+
