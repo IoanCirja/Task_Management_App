@@ -30,13 +30,13 @@
   }
 
   
-#openDialogBtn, #taskDialog button, #help, .completeBtn, .deleteBtn, #cancelHelp, #mailme{
+#openDialogBtn, #taskDialog button, #help, .completeBtn, .deleteBtn, #cancelHelp, #mailme, .editBtn{
     font-size: 15px; 
     padding: 10px 15px; 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-#openDialogBtn:hover,#taskDialog button[type="submit"]:hover, #help:hover, .completeBtn:hover, #cancelHelp:hover, #mailme:hover
+#openDialogBtn:hover,#taskDialog button[type="submit"]:hover, #help:hover, .completeBtn:hover, #cancelHelp:hover, #mailme:hover, .editBtn:hover
 {
     background-color: #005945;
     color: #f0f0f0;
