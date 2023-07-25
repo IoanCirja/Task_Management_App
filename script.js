@@ -1,13 +1,28 @@
-// JavaScript
 const openDialogBtn = document.getElementById("openDialogBtn");
 const cancelDialogBtn = document.getElementById("cancelDialogBtn");
+
 const taskDialog = document.getElementById("taskDialog");
 const taskForm = document.getElementById("taskForm");
+
 const completedTaskList = document.getElementById("completedTaskList");
 const uncompletedTaskList = document.getElementById("uncompletedTaskList");
 
+const helpBtn = document.getElementById("help");
+const cancelHelpBtn = document.getElementById("cancelHelp");
+const helpDialog = document.getElementById("helpDialog");
+
 let editTaskId = null;
 
+//help buttons
+helpBtn.addEventListener("click", () => {
+  helpDialog.showModal();
+});
+
+cancelHelpBtn.addEventListener("click", () => {
+  helpDialog.close();
+});
+
+//big task button
 openDialogBtn.addEventListener("click", () => {
   taskDialog.showModal();
 });
@@ -18,6 +33,7 @@ cancelDialogBtn.addEventListener("click", () => {
   taskDialog.close();
 });
 
+//local storage functionality
 function saveTasks(tasks) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
@@ -102,7 +118,6 @@ function displayTasks() {
       <p class="description">${task.description}</p>
       <p><b>Assignee:</b> ${task.assignee}</p>
       <button class="deleteBtn" data-taskid="${index}">Delete</button>
-      <button class="editBtn" data-taskid="${index}">Edit</button>
     `;
 
     if (task.completed) {
@@ -110,6 +125,7 @@ function displayTasks() {
     } else {
       taskItem.innerHTML += `
         <button class="completeBtn" data-taskid="${index}">Mark Completed</button>
+        <button class="editBtn" data-taskid="${index}">Edit</button>
       `;
 
       const completeBtn = taskItem.querySelector(".completeBtn");
@@ -117,6 +133,12 @@ function displayTasks() {
         const taskId = parseInt(completeBtn.getAttribute("data-taskid"));
         markTaskCompleted(taskId);
         displayTasks();
+      });
+
+      const editBtn = taskItem.querySelector(".editBtn");
+      editBtn.addEventListener("click", () => {
+        const taskId = parseInt(editBtn.getAttribute("data-taskid"));
+        handleEditClick(taskId);
       });
     }
 
@@ -126,12 +148,6 @@ function displayTasks() {
       tasks.splice(taskId, 1);
       saveTasks(tasks);
       displayTasks();
-    });
-
-    const editBtn = taskItem.querySelector(".editBtn");
-    editBtn.addEventListener("click", () => {
-      const taskId = parseInt(editBtn.getAttribute("data-taskid"));
-      handleEditClick(taskId);
     });
 
     if (task.completed) {

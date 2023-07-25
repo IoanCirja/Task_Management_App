@@ -1,106 +1,111 @@
-*{
-    text-align: center;
-   
-    padding: 0px;
-    font-family: 'Roboto', sans-serif;
+* {
+  text-align: center;
 
+  padding: 0px;
+  font-family: "Roboto", sans-serif;
 }
-.task-section-container {
-    display: flex;
-    justify-content: space-between;
-  } 
-  
-  .task-section {
-    width: 48%;
-  }
-
-  .task-section li{
-    background-color: #f0f0f0; 
-    border-radius: 10px; 
-    padding: 10px;
-    margin-bottom: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  header h1, h2 {
-    background-color: #f0f0f0; 
-    border-radius: 10px; 
-    padding: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  
-#openDialogBtn, #taskDialog button, #help, .completeBtn, .deleteBtn, #cancelHelp, #mailme, .editBtn{
-    font-size: 15px; 
-    padding: 10px 15px; 
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-#openDialogBtn:hover,#taskDialog button[type="submit"]:hover, #help:hover, .completeBtn:hover, #cancelHelp:hover, #mailme:hover, .editBtn:hover
-{
-    background-color: #005945;
-    color: #f0f0f0;
-    transition: background-color 0.5s ease;
+.taskSectionContainer {
+  display: flex;
+  justify-content: space-between;
 }
-#cancelDialogBtn:hover, .deleteBtn:hover
-{
-    background-color: #e04141;
-    color: #f0f0f0;
-    transition: background-color 0.5s ease;
+
+.taskSection {
+  width: 48%;
+}
+
+.taskSection li {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1,
+h2 {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#openDialogBtn,
+#taskDialog button,
+#help,
+.completeBtn,
+.deleteBtn,
+#cancelHelp,
+#mailme,
+.editBtn {
+  font-size: 15px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#openDialogBtn:hover,
+#taskDialog button[type="submit"]:hover,
+#help:hover,
+.completeBtn:hover,
+#cancelHelp:hover,
+#mailme:hover,
+.editBtn:hover {
+  background-color: #005945;
+  color: #f0f0f0;
+  transition: background-color 0.5s ease;
+}
+#cancelDialogBtn:hover,
+.deleteBtn:hover {
+  background-color: #e04141;
+  color: #f0f0f0;
+  transition: background-color 0.5s ease;
 }
 #taskDialog form {
-    background-color: #f0f0f0; 
-    padding: 50px; 
-    border-radius: 10px;
-  }
-  
+  background-color: #f0f0f0;
+  padding: 50px;
+  border-radius: 10px;
+}
 
-  
-  #taskDialog label {
-    display: block; 
-    margin-bottom: 5px; 
-    border-radius: 10px;
+#taskDialog label {
+  display: block;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
 
-  }
+#taskDialog input[type="text"],
+#taskDialog textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
+ul {
+  list-style: none;
+}
 
-  #taskDialog input[type="text"],
-  #taskDialog textarea {
-    width: 100%; 
-    padding: 10px; 
-    margin-bottom: 30px; 
-    border: 1px solid #ccc; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+.description {
+  text-align: justify;
+}
 
-  ul{
-    list-style: none;
-  }
+textarea {
+  resize: none;
+  height: 150px;
+}
 
+main {
+  min-height: calc(100vh - 200px);
+}
 
-  .description{
-    text-align: justify;
-  }
-
-  textarea{
-    resize: none;
-    height: 150px;
-  }
-
-  main {
-    min-height:calc(100vh - 200px); 
-  }
-  
-#helpDialog, #taskDialog {
-
+#helpDialog,
+#taskDialog {
   width: 500px;
   background-color: #f0f0f0;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Roboto', sans-serif;
-
+  font-family: "Roboto", sans-serif;
 }
 #helpDialog p {
   text-align: justify;
@@ -108,29 +113,11 @@
 
 #helpDialog div {
   margin-bottom: 20px;
-
 }
 
 #helpDialog a {
   text-decoration: none;
 }
-#helpDialog a:hover{
-  color:black;
+#helpDialog a:hover {
+  color: black;
 }
-
-
-
-
-
-
-
-
-
-  
-
-
-  
-
-  
-  
-  

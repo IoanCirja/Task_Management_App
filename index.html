@@ -12,21 +12,18 @@
             <h1>Task Management</h1>
             <button id="openDialogBtn">Add Task</button>
         </header>
-
         <main>
-
-            <div class="task-section-container">
-                <div class="task-section">
+            <div class="taskSectionContainer">
+                <div class="taskSection">
                 <h2>Uncompleted tasks</h2>
                 <ul id="uncompletedTaskList"></ul>
                 </div>
 
-                <div class="task-section">
+                <div class="taskSection">
                 <h2>Completed tasks</h2>
                 <ul id="completedTaskList"></ul>
                 </div>
             </div>
-
             <dialog id="taskDialog">
                 <form id="taskForm">
                     <label for="name">Task Name:</label>
@@ -42,23 +39,21 @@
                     <button id="cancelDialogBtn">Cancel</button>
                 </form>
             </dialog>
-
         </main>
-
         <footer>
             <button id="help">Help</button>
             <dialog id="helpDialog">
                 <div>
                     <p>
-                        Welcome to the Task Management App!<br><br>
-                        With this app, you can efficiently manage your tasks and stay organized.
+                        <b>Welcome to the Task Management App!</b><br><br>
+                        With this app, you can manage your tasks and stay organized.
                         <br><br>
                         To add a new task, click on the "Add Task" button and fill in the details.
                         <br>
                         Your tasks will be listed as "Uncompleted tasks" by default. Once a task is completed, click on it to move it to the "Completed tasks" section.
                     </p>
                     <p>
-                        To edit a task, click on it and make changes in the dialog box that appears. To delete a task, click on it and then click the "Delete" button in the dialog box.
+                        To edit a task, click on it and make changes in the dialog box that appears. To delete a task, click the "Delete" button.
                         <br><br>
                         For any assistance, click on the "Contact" button.
                     </p>
@@ -69,8 +64,6 @@
                 </div>
             </dialog>
         </footer>
-
-
         <script src="script.js"></script>
     </body>
 </html>
