@@ -1,31 +1,31 @@
+// JavaScript
 const openDialogBtn = document.getElementById("openDialogBtn");
 const cancelDialogBtn = document.getElementById("cancelDialogBtn");
-
 const taskDialog = document.getElementById("taskDialog");
 const taskForm = document.getElementById("taskForm");
 const completedTaskList = document.getElementById("completedTaskList");
 const uncompletedTaskList = document.getElementById("uncompletedTaskList");
 
-const helpBtn = document.getElementById("help");
-const cancelHelpBtn = document.getElementById("cancelHelp");
-helpDialog = document.getElementById("helpDialog");
+let editTaskId = null;
 
-helpBtn.addEventListener("click", () => {
-  helpDialog.showModal();
+openDialogBtn.addEventListener("click", () => {
+  taskDialog.showModal();
 });
-helpDialog.addEventListener("submit", () => {
-  helpDialog.close();
-});
-cancelHelpBtn.addEventListener("click", () => {
-  helpDialog.close();
+
+cancelDialogBtn.addEventListener("click", () => {
+  taskForm.reset();
+  editTaskId = null;
+  taskDialog.close();
 });
 
 function saveTasks(tasks) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+
 function getTasks() {
   return JSON.parse(localStorage.getItem("tasks")) || [];
 }
+
 function addTask(title, description, assignee) {
   const task = {
     title: title,
@@ -39,6 +39,7 @@ function addTask(title, description, assignee) {
 
   saveTasks(tasks);
 }
+
 function markTaskCompleted(taskId) {
   const tasks = getTasks();
   tasks[taskId].completed = true;
@@ -62,11 +63,15 @@ function handleFormSubmit(event) {
   const description = taskForm.description.value.trim();
   const assignee = taskForm.assignee.value.trim();
 
-  addTask(title, description, assignee);
+  if (editTaskId !== null) {
+    editTask(editTaskId, title, description, assignee);
+    editTaskId = null;
+  } else {
+    addTask(title, description, assignee);
+  }
+
   taskForm.reset();
-
   taskDialog.close();
-
   displayTasks();
 }
 
@@ -78,23 +83,7 @@ function handleEditClick(taskId) {
   taskForm.description.value = taskToEdit.description;
   taskForm.assignee.value = taskToEdit.assignee;
 
-  taskForm.removeEventListener("submit", handleFormSubmit);
-  taskForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const title = taskForm.title.value.trim();
-    const description = taskForm.description.value.trim();
-    const assignee = taskForm.assignee.value.trim();
-
-    editTask(taskId, title, description, assignee);
-    taskForm.reset();
-    taskDialog.close();
-
-    
-    taskForm.addEventListener("submit", handleFormSubmit);
-
-    displayTasks();
-  });
+  editTaskId = taskId;
 
   taskDialog.showModal();
 }
@@ -102,8 +91,8 @@ function handleEditClick(taskId) {
 function displayTasks() {
   const tasks = getTasks();
 
-  uncompletedTaskList.innerHTML = '';
-  completedTaskList.innerHTML = '';
+  uncompletedTaskList.innerHTML = "";
+  completedTaskList.innerHTML = "";
 
   tasks.forEach((task, index) => {
     const taskItem = document.createElement("li");
@@ -152,14 +141,6 @@ function displayTasks() {
     }
   });
 }
-
-openDialogBtn.addEventListener("click", () => {
-  taskDialog.showModal();
-});
-
-cancelDialogBtn.addEventListener("click", () => {
-  taskDialog.close();
-});
 
 taskForm.addEventListener("submit", handleFormSubmit);
 
