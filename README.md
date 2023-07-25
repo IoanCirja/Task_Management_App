@@ -13,5 +13,5 @@ As a user, I should be able to:\
 -Use an email field for the assignee.\
 -Mark a task as completed.\
 -Delete a task.\
--View tasks (separate the completed tasks from those still in progress)\
+-View tasks (separate the completed tasks from those still in progress)
 
